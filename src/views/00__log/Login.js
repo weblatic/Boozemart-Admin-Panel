@@ -12,7 +12,7 @@ export default function Login(props) {
     const [data, setData] = React.useState({
         email: "",
         password: "",
-        err:""
+        err: ""
     });
     const [logo, setLogo] = React.useState({
         favicon: "",
@@ -32,7 +32,7 @@ export default function Login(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res1 = sendRequest(apis.base + apis.logo, formData, ((res) => callbackLogo(res)));
+        const res = sendRequest(apis.base + apis.logo, formData, ((res) => callbackLogo(res)), ((err) => console.log(err)));
     }, []);
 
     const callbackLogo = (res) => {
@@ -60,7 +60,7 @@ export default function Login(props) {
         }
     };
     const callbackError = (err) => {
-        setData({...data,err: "Incorrect email or incorrect password"})
+        setData({...data, err: "Incorrect email or incorrect password"})
     };
 
 

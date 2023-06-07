@@ -27,7 +27,7 @@ export default function AdminProductEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.categoryListAll, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.categoryListAll, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
     const callback = (res) => {
         setCategories(res.data);
@@ -44,7 +44,7 @@ export default function AdminProductEdit(props) {
         formData.append("payload", JSON.stringify(body));
         formData.append("image", image);
         formData.append("product_image", productImage);
-        const res = sendRequest(apis.base + apis.productList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.productList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

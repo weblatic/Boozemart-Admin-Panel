@@ -22,7 +22,7 @@ export default function TrendingSearch(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res2 = sendRequest(apis.base + apis.trendingSearchProductSelected, formData, ((res) => callback2(res)));
+        const res = sendRequest(apis.base + apis.trendingSearchProductSelected, formData, ((res) => callback2(res)), ((err) => console.log(err)));
     }, []);
 
     const callback1 = (res) => {
@@ -35,7 +35,7 @@ export default function TrendingSearch(props) {
         let result = res.data;
         let where = [];
         for (let i = 0; i < result.length; i++) {
-            where.push('varient_id!=' + result[i].varient_id)
+            where.push('Variant_id!=' + result[i].Variant_id)
         }
 
         let body = {
@@ -44,12 +44,12 @@ export default function TrendingSearch(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res1 = sendRequest(apis.base + apis.trendingSearchProduct, formData, ((res) => callback1(res)));
+        const res1 = sendRequest(apis.base + apis.trendingSearchProduct, formData, ((res) => callback1(res)), ((err) => console.log(err)));
     };
 
     const contain = (item) => {
         for (let i = 0; i < productSelected.length; i++) {
-            if (productSelected[i].varient_id === item.varient_id) {
+            if (productSelected[i].Variant_id === item.Variant_id) {
                 return true;
             }
         }
@@ -61,22 +61,22 @@ export default function TrendingSearch(props) {
             let body = {
                 method: "add",
                 data: {
-                    varient_id: data[i].varient_id
+                    Variant_id: data[i].Variant_id
                 }
             };
             let formData = new FormData();
             formData.append("payload", JSON.stringify(body));
-            const res1 = sendRequest(apis.base + apis.trendingSearchProductSelected, formData, ((res) => (res)));
+            const res = sendRequest(apis.base + apis.trendingSearchProductSelected, formData, ((res) => (res)), ((err) => console.log(err)));
         }
         let body = {
             method: "add",
             data: {
-                varient_id: data[data.length - 1].varient_id
+                Variant_id: data[data.length - 1].Variant_id
             }
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res1 = sendRequest(apis.base + apis.trendingSearchProductSelected, formData, ((res) => callbackSubmit(res)));
+        const res1 = sendRequest(apis.base + apis.trendingSearchProductSelected, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
 
     const callbackSubmit = () => {

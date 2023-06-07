@@ -20,7 +20,7 @@ export default function AdminProducts(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.productList, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.productList, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -57,7 +57,7 @@ export default function AdminProducts(props) {
                     button={{}}
                     buttonEx={{
                         "Hide": [buttonType.showOrHide],
-                        "Actions": [buttonType.edit, buttonType.delete, buttonType.varient]
+                        "Actions": [buttonType.edit, buttonType.delete, buttonType.Variant]
                     }}
                     data={data} api={apis.productList} primaryKey={"product_id"}/>
             </div>

@@ -21,7 +21,7 @@ export default function IdEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.idList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.idList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

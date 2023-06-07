@@ -5,18 +5,18 @@ import {sendRequest} from "../../api/sendRequest"
 export default function BulkUpload(props) {
 
     const [productFile, setProductFile] = React.useState("");
-    const [varientFile, setVarientFile] = React.useState("");
+    const [VariantFile, setVariantFile] = React.useState("");
 
     const submitProduct = () => {
         let formData = new FormData();
         formData.append("file", productFile);
-        const res = sendRequest(apis.base + apis.bulkUploadProduct, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.bulkUploadProduct, formData, ((res) => callback(res)), ((err) => console.log(err)));
     };
 
-    const submitVarient = () => {
+    const submitVariant = () => {
         let formData = new FormData();
-        formData.append("file", varientFile);
-        const res = sendRequest(apis.base + apis.bulkUploadVarient, formData, ((res) => callback(res)));
+        formData.append("file", VariantFile);
+        const res = sendRequest(apis.base + apis.bulkUploadVariant, formData, ((res) => callback(res)), ((err) => console.log(err)));
     };
 
     const url = window.location.href;
@@ -46,7 +46,7 @@ export default function BulkUpload(props) {
                             <li>Please upload the images on images/products path inside your main project
                                 directory.
                             </li>
-                            <li><a href={"assets('public/csv_sample/products.csv'"} download="products.csv"
+                            <li><a href={process.env.PUBLIC_URL + '/csv_sample/products.csv'} download="products.csv"
                                    className="download-style">Download Sample File</a></li>
                         </ol>
                     </div>
@@ -90,29 +90,29 @@ export default function BulkUpload(props) {
                                 csv file.
                             </li>
                             <li>Insert tags in tags column separated by comma.</li>
-                            <li><a href={"assets('public/csv_sample/products.csv'"} download="products.csv"
+                            <li><a href={process.env.PUBLIC_URL + '/csv_sample/variants.csv'} download="variants.csv"
                                    className="download-style">Download Sample File</a></li>
                         </ol>
                     </div>
                 </div>
                 <div className="card">
                     <div className="card-header bg-primary text-white">
-                        <h5 className="panel-title">Bulk Varients Upload</h5>
+                        <h5 className="panel-title">Bulk Variants Upload</h5>
                     </div>
                     <div className="card-body">
                         <div className="custom-file">
                             <input type="file" className="custom-file-input"
                                    accept=".csv"
                                    name="select_file" data-allowed-file-extensions="csv" required=""
-                                   onChange={(event) => setVarientFile(event.target.files[0])}
+                                   onChange={(event) => setVariantFile(event.target.files[0])}
                             />
                             <label className="custom-file-label" htmlFor="customFile">Choose file</label>
                         </div>
                         <br/>
                         <br/>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-xs" onClick={submitVarient}>
-                                Import Varients
+                            <button type="submit" className="btn btn-primary btn-xs" onClick={submitVariant}>
+                                Import Variants
                             </button>
                         </div>
 

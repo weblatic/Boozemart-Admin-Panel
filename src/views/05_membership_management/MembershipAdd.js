@@ -27,7 +27,7 @@ export default function MembershipAdd(props) {
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
         formData.append("image", image);
-        const res = sendRequest(apis.base + apis.membershipList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.membershipList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

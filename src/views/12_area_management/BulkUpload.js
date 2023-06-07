@@ -14,19 +14,19 @@ export default function BulkUpload(props) {
     const submitCity = () => {
         let formData = new FormData();
         formData.append("file", cityFile);
-        const res = sendRequest(apis.base + apis.bulkUploadCity, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.bulkUploadCity, formData, ((res) => callback(res)), ((err) => console.log(err)));
     };
 
     const submitSociety = () => {
         let formData = new FormData();
         formData.append("file", societyFile);
-        const res = sendRequest(apis.base + apis.bulkUploadSociety, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.bulkUploadSociety, formData, ((res) => callback(res)), ((err) => console.log(err)));
     };
 
     const url = window.location.href;
     const callback = (res) => {
         if (res.status === 200) {
-              window.location.href = url;
+            window.location.href = url;
         }
     };
 
@@ -42,7 +42,7 @@ export default function BulkUpload(props) {
                             <li>Only CSV file are allowed.</li>
                             <li>First row need to keep blank or use for column name only.</li>
                             <li>All fields are must needed in csv file.</li>
-                            <li><a href={"assets('public/csv_sample/cities.csv'"} download="cities.csv"
+                            <li><a href={process.env.PUBLIC_URL + '/csv_sample/cities.csv'} download="cities.csv"
                                    className="download-style">Download Sample File</a></li>
                         </ol>
                     </div>
@@ -85,7 +85,7 @@ export default function BulkUpload(props) {
                             <li>fill the city id(Which is available in city list section) in city_id column of csv
                                 file.
                             </li>
-                            <li><a href={"assets('public/csv_sample/societies.csv'"} download="societies.csv"
+                            <li><a href={process.env.PUBLIC_URL + '/csv_sample/societies.csv'} download="societies.csv"
                                    className="download-style">Download Sample File</a></li>
                         </ol>
                     </div>

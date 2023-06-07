@@ -43,9 +43,9 @@ export const routers = {
     productList: "/product/list",
     productAdd: "/product/add",
     productEdit: "/product/edit/:id",
-    productVarient: "/product/varient/:id",
-    productVarientEdit: "/product/varient/edit/:id",
-    productVarientAdd: "/product/varient/add/:id",
+    productVariant: "/product/Variant/:id",
+    productVariantEdit: "/product/Variant/edit/:id",
+    productVariantAdd: "/product/Variant/add/:id",
     bulkUpload: "/bulk/upload",
     trendingSearchProductAdd: "/trending-search/product/add",
     storeProductsList: "/store-data/list",
@@ -513,7 +513,7 @@ export const tabs = {
 export const buttonType = {
     edit: "edit",
     layer: "layer",
-    editForVarient: "editForVarient",
+    editForVariant: "editForVariant",
     delete: "delete",
     process: "process",
     reject: "reject",
@@ -527,5 +527,5 @@ export const buttonType = {
     recharge: "recharge",
     cancelOrRefund: "cancel/refund",
     showOrHide: "show/hide",
-    varient: "varient",
+    Variant: "Variant",
 };

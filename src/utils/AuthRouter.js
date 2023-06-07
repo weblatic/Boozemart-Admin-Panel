@@ -49,7 +49,7 @@ const AuthRouter = ({children}) => {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res1 = sendRequest(apis.base + apis.logo, formData, ((res) => callback(res)));
+        const res1 = sendRequest(apis.base + apis.logo, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {

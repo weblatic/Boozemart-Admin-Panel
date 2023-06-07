@@ -37,8 +37,8 @@ export default function StoreEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.idList, formData, ((res) => callback(res)));
-        const res1 = sendRequest(apis.base + apis.cityList, formData, ((res) => callback1(res)));
+        const res = sendRequest(apis.base + apis.idList, formData, ((res) => callback(res)), ((err) => console.log(err)));
+        const res1 = sendRequest(apis.base + apis.cityList, formData, ((res) => callback1(res)), ((err) => console.log(err)));
     }, []);
     const callback = (res) => {
         setIds(res.data);
@@ -58,7 +58,7 @@ export default function StoreEdit(props) {
         formData.append("payload", JSON.stringify(body));
         formData.append("store_photo", image);
         formData.append("id_photo", idImage);
-        const res = sendRequest(apis.base + apis.adminStoreList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.adminStoreList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

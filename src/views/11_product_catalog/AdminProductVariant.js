@@ -7,7 +7,7 @@ import Add from "../../components/buttons/Add";
 import {sendRequest} from "../../api/sendRequest";
 import {apis} from "../../configuration/configurationApi";
 
-export default function AdminProductVarient(props) {
+export default function AdminProductVariant(props) {
 
     const productId = useParams().id;
     const item = useLocation().state;
@@ -20,7 +20,7 @@ export default function AdminProductVarient(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.productVarient, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.productVariant, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -33,7 +33,7 @@ export default function AdminProductVarient(props) {
             <div className="card-header card-header-primary">
                 <div className="row">
                     <div className="col-md-6">
-                        <h1 className="card-title"><b>Varient List</b></h1>
+                        <h1 className="card-title"><b>Variant List</b></h1>
                     </div>
                     <div className="col-md-6">
                         <Add/>
@@ -53,10 +53,10 @@ export default function AdminProductVarient(props) {
                     searchField={true}
                     image={[]}
                     button={{
-                        "Actions": [buttonType.editForVarient, buttonType.delete]
+                        "Actions": [buttonType.editForVariant, buttonType.delete]
                     }}
                     buttonEx={{}}
-                    data={data} api={apis.productVarient} primaryKey={"id"}
+                    data={data} api={apis.productVariant} primaryKey={"id"}
                     oldItem={item}
                 />
             </div>

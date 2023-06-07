@@ -32,7 +32,7 @@ export default function Payment(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.settings, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.settings, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -77,13 +77,13 @@ export default function Payment(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.settings, formData, ((res) => (res)));
+        const res = sendRequest(apis.base + apis.settings, formData, ((res) => (res)), ((err) => console.log(err)));
         let formData1 = new FormData();
         formData1.append("payload", JSON.stringify(body1));
-        const res1 = sendRequest(apis.base + apis.settings, formData1, ((res) => (res)));
+        const res1 = sendRequest(apis.base + apis.settings, formData1, ((res) => (res)), ((err) => console.log(err)));
         let formData2 = new FormData();
         formData2.append("payload", JSON.stringify(body2));
-        const res2 = sendRequest(apis.base + apis.settings, formData2, ((res) => (res)));
+        const res2 = sendRequest(apis.base + apis.settings, formData2, ((res) => (res)), ((err) => console.log(err)));
     };
 
     const submitStripeEtc = () => {
@@ -94,7 +94,7 @@ export default function Payment(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.settings, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.settings, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
 
     const url = window.location.href;

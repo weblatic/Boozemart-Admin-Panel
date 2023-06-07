@@ -29,7 +29,7 @@ export default function Forgot(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res1 = sendRequest(apis.base + apis.logo, formData, ((res) => callbackLogo(res)));
+        const res =sendRequest(apis.base + apis.logo, formData, ((res) => callbackLogo(res)), ((err) => console.log(err)));
     }, []);
 
     const callbackLogo = (res) => {

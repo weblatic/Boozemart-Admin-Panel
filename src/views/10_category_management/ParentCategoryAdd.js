@@ -26,7 +26,7 @@ export default function ParentCategoryAdd(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.taxList, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.taxList, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
     const callback = (res) => {
         setTax(res.data);
@@ -41,7 +41,7 @@ export default function ParentCategoryAdd(props) {
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
         formData.append("image", image);
-        const res = sendRequest(apis.base + apis.categoryList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.categoryList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

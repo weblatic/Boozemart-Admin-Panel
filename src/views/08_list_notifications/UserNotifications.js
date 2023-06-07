@@ -15,7 +15,7 @@ export default function UserNotifications(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.notificationListUser, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.notificationListUser, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -30,7 +30,7 @@ export default function UserNotifications(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.notificationListUser, formData, ((res) => callbackDel(res)));
+        const res = sendRequest(apis.base + apis.notificationListUser, formData, ((res) => callbackDel(res)), ((err) => console.log(err)));
     };
 
     const removeAll = () => {
@@ -39,7 +39,7 @@ export default function UserNotifications(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.notificationListUser, formData, ((res) => callbackDel(res)));
+        const res = sendRequest(apis.base + apis.notificationListUser, formData, ((res) => callbackDel(res)), ((err) => console.log(err)));
     };
 
     const callbackDel = (res) => {

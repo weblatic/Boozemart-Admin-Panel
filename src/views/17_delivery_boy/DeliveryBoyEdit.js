@@ -39,12 +39,12 @@ export default function DeliveryBoyEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.idList, formData, ((res) => callback(res)));
-        const res1 = sendRequest(apis.base + apis.cityList, formData, ((res) => callback1(res)));
-        const res2 = sendRequest(apis.base + apis.adminStoreList, formData, ((res) => callback2(res)));
+        const res = sendRequest(apis.base + apis.idList, formData, ((res) => callback(res)), ((err) => console.log(err)));
+        const res1 = sendRequest(apis.base + apis.cityList, formData, ((res) => callback1(res)), ((err) => console.log(err)));
+        const res2 = sendRequest(apis.base + apis.adminStoreList, formData, ((res) => callback2(res)), ((err) => console.log(err)));
         let formData1 = new FormData();
         formData1.append("payload", JSON.stringify(body1));
-        const res3 = sendRequest(apis.base + apis.adminDBoyStoreList, formData1, ((res) => callback3(res)));
+        const res3 = sendRequest(apis.base + apis.adminDBoyStoreList, formData1, ((res) => callback3(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -72,7 +72,7 @@ export default function DeliveryBoyEdit(props) {
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
         formData.append("id_photo", image);
-        const res = sendRequest(apis.base + apis.dBoyList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.dBoyList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

@@ -20,7 +20,7 @@ export default function TaxEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.taxList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.taxList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
 
     const callbackSubmit = (res) => {

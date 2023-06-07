@@ -20,7 +20,7 @@ export default function RoleEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.cityList, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.cityList, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
     const callback = (res) => {
         setCities(res.data);
@@ -34,7 +34,7 @@ export default function RoleEdit(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.societyList, formData, ((res) => callbackSubmit(res)));
+        const res = sendRequest(apis.base + apis.societyList, formData, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
     const callbackSubmit = (res) => {
         if (res.status === 200) {

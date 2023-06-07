@@ -28,8 +28,8 @@ export default function AppNameEtc(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res1 = sendRequest(apis.base + apis.logo, formData, ((res) => callback(res)));
-        const res = sendRequest(apis.base + apis.countryCode, formData, ((res) => callback1(res)));
+        const res1 = sendRequest(apis.base + apis.logo, formData, ((res) => callback(res)), ((err) => console.log(err)));
+        const res = sendRequest(apis.base + apis.countryCode, formData, ((res) => callback1(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -50,7 +50,7 @@ export default function AppNameEtc(props) {
         formData.append("payload", JSON.stringify(body));
         formData.append("icon", image);
         formData.append("favicon", favicon);
-        const res = sendRequest(apis.base + apis.logo, formData, ((res) => (res)));
+        const res = sendRequest(apis.base + apis.logo, formData, ((res) => (res)), ((err) => console.log(err)));
         let body1 = {
             method: "update",
             data: countryCode,
@@ -58,7 +58,7 @@ export default function AppNameEtc(props) {
         };
         let formData1 = new FormData();
         formData1.append("payload", JSON.stringify(body1));
-        const res1 = sendRequest(apis.base + apis.countryCode, formData1, ((res) => callbackSubmit(res)));
+        const res1 = sendRequest(apis.base + apis.countryCode, formData1, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
 
     const callbackSubmit = (res) => {

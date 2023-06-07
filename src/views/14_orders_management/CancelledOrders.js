@@ -19,7 +19,7 @@ export default function CancelledOrders(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.adminCancelledOrders, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.adminCancelledOrders, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {

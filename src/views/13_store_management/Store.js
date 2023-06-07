@@ -20,7 +20,7 @@ export default function Store(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.adminStoreList, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.adminStoreList, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {

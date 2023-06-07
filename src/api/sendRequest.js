@@ -6,14 +6,15 @@ const client = axios.create({
     baseURL: base_url
 });
 
-export async function sendRequest(url, formData, callback, errCallback) {
-    await client
+export function sendRequest(url, formData, callback, errCallback) {
+    client
         .post(url, formData, {headers: authHeader()})
         .then((response) => {
             callback(response);
         }).catch(error => {
             errCallback(error)
-        });
+        }
+    );
 }
 
 

@@ -46,9 +46,9 @@ import SubCategoryEdit from "../views/10_category_management/SubCategoryEdit";
 import AdminProducts from "../views/11_product_catalog/AdminProducts";
 import AdminProductAdd from "../views/11_product_catalog/AdminProductAdd";
 import AdminProductEdit from "../views/11_product_catalog/AdminProductEdit";
-import AdminProductVarient from "../views/11_product_catalog/AdminProductVarient";
-import AdminProductVarientEdit from "../views/11_product_catalog/AdminProductVarientEdit";
-import AdminProductVarientAdd from "../views/11_product_catalog/AdminProductVarientAdd";
+import AdminProductVariant from "../views/11_product_catalog/AdminProductVariant";
+import AdminProductVariantEdit from "../views/11_product_catalog/AdminProductVariantEdit";
+import AdminProductVariantAdd from "../views/11_product_catalog/AdminProductVariantAdd";
 import BulkUploadProduct from "../views/11_product_catalog/BulkUpload";
 import TendingSearch from "../views/11_product_catalog/TrendingSearch";
 import StoreProducts from "../views/11_product_catalog/StoreProducts";
@@ -175,12 +175,12 @@ export const Routers = (props) => (
                element={<AuthRouter><AdminProductAdd language={props.language}/> </AuthRouter>}/>
         <Route path={routers.productEdit}
                element={<AuthRouter><AdminProductEdit language={props.language}/> </AuthRouter>}/>
-        <Route path={routers.productVarient}
-               element={<AuthRouter><AdminProductVarient language={props.language}/> </AuthRouter>}/>
-        <Route path={routers.productVarientAdd}
-               element={<AuthRouter><AdminProductVarientAdd language={props.language}/> </AuthRouter>}/>
-        <Route path={routers.productVarientEdit}
-               element={<AuthRouter><AdminProductVarientEdit language={props.language}/> </AuthRouter>}/>
+        <Route path={routers.productVariant}
+               element={<AuthRouter><AdminProductVariant language={props.language}/> </AuthRouter>}/>
+        <Route path={routers.productVariantAdd}
+               element={<AuthRouter><AdminProductVariantAdd language={props.language}/> </AuthRouter>}/>
+        <Route path={routers.productVariantEdit}
+               element={<AuthRouter><AdminProductVariantEdit language={props.language}/> </AuthRouter>}/>
         <Route path={routers.bulkUpload}
                element={<AuthRouter><BulkUploadProduct language={props.language}/> </AuthRouter>}/>
         <Route path={routers.trendingSearchProductAdd}

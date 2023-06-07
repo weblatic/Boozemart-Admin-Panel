@@ -70,7 +70,7 @@ export default function SendNotification(props) {
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
         formData.append("image", image);
-        const res = sendRequest(apis.base + props.api, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + props.api, formData, ((res) => callback(res)), ((err) => console.log(err)));
     };
     const url = window.location.href;
     const callback = (res) => {

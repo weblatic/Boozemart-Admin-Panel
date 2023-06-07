@@ -22,8 +22,8 @@ import CancelOrRefund from "./buttons/CancelOrRefund";
 import CustomImage from "./CustomImage";
 import AssignDelivery from "./buttons/AssignDelivery";
 import CheckBtn from "./buttons/CheckBtn";
-import Varient from "./buttons/Varient";
-import EditForVarient from "./buttons/EditForVarient";
+import Variant from "./buttons/Variant";
+import EditForVariant from "./buttons/EditForVariant";
 import Layer from "./buttons/Layer";
 
 export default function CustomTable(props) {
@@ -257,9 +257,9 @@ export default function CustomTable(props) {
                     <Edit key={"button_" + key + "_" + val + "_" + item} item={item} api={props.api}
                           primaryKey={props.primaryKey}/>
                 );
-            case buttonType.editForVarient:
+            case buttonType.editForVariant:
                 return (
-                    <EditForVarient key={"button_" + key + "_" + val + "_" + item} item={item} oldItem={props.oldItem}
+                    <EditForVariant key={"button_" + key + "_" + val + "_" + item} item={item} oldItem={props.oldItem}
                                     api={props.api} primaryKey={props.primaryKey}/>
                 );
             case buttonType.delete:
@@ -306,9 +306,9 @@ export default function CustomTable(props) {
                     <Order key={"button_" + key + "_" + val + "_" + item} item={item} api={props.api}
                            primaryKey={props.primaryKey}/>
                 );
-            case buttonType.varient:
+            case buttonType.Variant:
                 return (
-                    <Varient key={"button_" + key + "_" + val + "_" + item} item={item} api={props.api}
+                    <Variant key={"button_" + key + "_" + val + "_" + item} item={item} api={props.api}
                              primaryKey={props.primaryKey}/>
                 );
             case buttonType.unlock:

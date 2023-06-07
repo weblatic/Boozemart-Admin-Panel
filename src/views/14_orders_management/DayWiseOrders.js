@@ -20,7 +20,7 @@ export default function DayWiseOrders(props) {
                method: "get",
                where: ['orders.delivery_date<"' + new Date(new Date().getTime()).toISOString().slice(0, 10) + '"'],
            };
-           let formData = new FormData();formData.append("payload", JSON.stringify(body));const res = sendRequest(apis.base+apis.ordersTodayAll, formData, ((res) => callback(res)));*/
+           let formData = new FormData();formData.append("payload", JSON.stringify(body));const res = sendRequest(apis.base+apis.ordersTodayAll, formData, ((res) => callback(res)), ((err) => console.log(err)));*/
     }, []);
 
     const callback = (res) => {
@@ -42,7 +42,7 @@ export default function DayWiseOrders(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.ordersTodayAll, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.ordersTodayAll, formData, ((res) => callback(res)), ((err) => console.log(err)));
     };
 
     return (

@@ -16,7 +16,7 @@ export default function StoreNotifications(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.notificationListStore, formData, ((res) => callback(res)));
+        const res = sendRequest(apis.base + apis.notificationListStore, formData, ((res) => callback(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -30,7 +30,7 @@ export default function StoreNotifications(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.notificationListStore, formData, ((res) => callbackDel(res)));
+        const res = sendRequest(apis.base + apis.notificationListStore, formData, ((res) => callbackDel(res)), ((err) => console.log(err)));
     };
 
     const callbackDel = (res) => {

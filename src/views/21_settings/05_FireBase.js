@@ -22,8 +22,8 @@ export default function FireBase(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.firebase, formData, ((res) => callback(res)));
-        const res1 = sendRequest(apis.base + apis.firebaseIso, formData, ((res) => callback1(res)));
+        const res = sendRequest(apis.base + apis.firebase, formData, ((res) => callback(res)), ((err) => console.log(err)));
+        const res1 = sendRequest(apis.base + apis.firebaseIso, formData, ((res) => callback1(res)), ((err) => console.log(err)));
     }, []);
 
     const callback = (res) => {
@@ -47,10 +47,10 @@ export default function FireBase(props) {
         };
         let formData = new FormData();
         formData.append("payload", JSON.stringify(body));
-        const res = sendRequest(apis.base + apis.firebase, formData, ((res) => (res)));
+        const res = sendRequest(apis.base + apis.firebase, formData, ((res) => (res)), ((err) => console.log(err)));
         let formData1 = new FormData();
         formData1.append("payload", JSON.stringify(body1));
-        const res1 = sendRequest(apis.base + apis.firebaseIso, formData1, ((res) => callbackSubmit(res)));
+        const res1 = sendRequest(apis.base + apis.firebaseIso, formData1, ((res) => callbackSubmit(res)), ((err) => console.log(err)));
     };
 
     const url = window.location.href;
